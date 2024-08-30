@@ -1,0 +1,17 @@
+<div>
+  <h2>ToDoアプリ</h2>
+  <form [formGroup]="toDo">
+    <mat-form-field>
+      <mat-label>やること</mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+  </form>
+  <button mat-button (click)="add()">追加</button>
+  <div>
+    <ul>
+      @for (todo of toDoList; track todo){
+        <li>{{todo}} <button (click)="clear(todo)">消す</button></li>
+      }
+    </ul>
+  </div>
+</div>
