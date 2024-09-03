@@ -1,17 +1,13 @@
-<div>
-  <h2>ToDoアプリ</h2>
-  <form [formGroup]="toDo">
-    <mat-form-field>
-      <mat-label>やること</mat-label>
-      <input matInput formControlName="title">
-    </mat-form-field>
-  </form>
-  <button mat-button (click)="add()">追加</button>
-  <div>
-    <ul>
-      @for (todo of toDoList; track todo){
-        <li>{{todo}} <button (click)="clear(todo)">消す</button></li>
-      }
-    </ul>
-  </div>
-</div>
+<mat-drawer-container class="drawer-container">
+    <mat-drawer #drawer class="drawer-sidenav" mode="side">
+        <app-side-nav (sidnavClose)="drawer.close()"></app-side-nav>
+    </mat-drawer>
+    <mat-drawer-content class="drawer-content">
+        <!-- Header-->
+        <app-header (sidenavToggle)="drawer.toggle()"></app-header>
+        <!-- Main Contents-->
+        <router-outlet></router-outlet>
+        <!-- Footer-->
+        <app-footer></app-footer>
+    </mat-drawer-content>
+</mat-drawer-container>

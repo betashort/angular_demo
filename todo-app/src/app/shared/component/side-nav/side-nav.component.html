@@ -1,0 +1,10 @@
+<mat-nav-list class="sidenav-wrap">
+    <mat-list-item routerLink="">
+        <mat-icon>home</mat-icon>
+    </mat-list-item>
+    @for (pageUrl of menuList; track pageUrl){
+    <mat-list-item>
+        <button mat-button routerLink="/{{pageUrl.url}}">{{pageUrl.page}}</button>
+    </mat-list-item>
+    }
+</mat-nav-list>
