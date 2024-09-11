@@ -9,8 +9,8 @@
     <button mat-button (click)="add()">追加</button>
     <div>
       <ul>
-        @for (todo of toDoList; track todo){
-          <li>{{todo}} <button (click)="clear(todo)"><mat-icon aria-hidden="false" fontIcon="clear"></mat-icon></button></li>
+        @for (todo of toDoList; track todo.id){
+          <li>{{todo.title}} <button (click)="clear(todo.id)"><mat-icon aria-hidden="false" fontIcon="clear"></mat-icon></button></li>
         }
       </ul>
     </div>
